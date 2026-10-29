@@ -286,7 +286,7 @@ def emit_output(text, code, name, c, note, always_stash):
         if not text:
             body = "(no output)"
         else:
-            body = text[:-1] if text.endswith("\n") else text
+            body = text.replace("\r\n", "\n").rstrip("\n") if text else ""
         if code not in (None, 0):
             body += f"\n[exit {code}]"
         out(body, c)
