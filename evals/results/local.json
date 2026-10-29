@@ -1,0 +1,50 @@
+{
+  "method": "Heuristic token estimates from scripts/tg.py est(). Not billing data.",
+  "tokenizer_caveat": "Claude 4.7 and later tokenizers can produce about 30% more tokens for the same text (platform pricing page). These counts may be low for those models.",
+  "footprint": {
+    "description_tokens": 59,
+    "body_tokens": 249,
+    "long_reference_tokens": 590,
+    "tg_call_text_tokens": 18
+  },
+  "scenarios": {
+    "api_log_2000_lines": {
+      "raw_tokens": 43110,
+      "tg_first_response_tokens": 254,
+      "stashed": true,
+      "tg_followup_tokens": 232
+    },
+    "test_failure_300_lines": {
+      "raw_tokens": 1623,
+      "tg_first_response_tokens": 261,
+      "stashed": true
+    },
+    "medium_100_lines, light (no task)": {
+      "raw_tokens": 1025,
+      "tg_first_response_tokens": 1025,
+      "stashed": false
+    },
+    "medium_100_lines, long (task started)": {
+      "raw_tokens": 1025,
+      "tg_first_response_tokens": 144,
+      "stashed": true
+    },
+    "small_command_8_lines": {
+      "raw_tokens": 24,
+      "tg_first_response_tokens": 24,
+      "stashed": false
+    }
+  },
+  "breakeven": {
+    "api_log_2000_lines": {
+      "saved_per_later_turn": 42838,
+      "later_turns_to_repay_light_body": 1,
+      "later_turns_to_repay_long_task_files": 1
+    },
+    "test_failure_300_lines": {
+      "saved_per_later_turn": 1344,
+      "later_turns_to_repay_light_body": 1,
+      "later_turns_to_repay_long_task_files": 1
+    }
+  }
+}
